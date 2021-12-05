@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //Se indica la ejecucion de los factories con la cantidad de registros que se desean crear
+        \App\Models\Publicacion::factory(10)->create();
+        \App\Models\Comentario::factory(10)->create();
+        \App\Models\RespuestaComentario::factory(10)->create();
     }
 }
