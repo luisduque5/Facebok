@@ -14,8 +14,9 @@ class CreateRespuestaComentariosTable extends Migration
     public function up()
     {
         Schema::create('respuesta_comentarios', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('idRespuesta');//Campo que almacena el ID de cada respuesta de un comentario
+            $table->text('textoRespuesta');//Campo que almacena el texto de la respuesta compartida
+            $table->timestamps();//Campo que permite recupear fecha y hora de creacion o modificacion del registro
         });
     }
 
@@ -26,6 +27,6 @@ class CreateRespuestaComentariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('respuesta_comentarios');
+        Schema::dropIfExists('respuesta_comentarios');//Metodo que elimina la tabla si existiera
     }
 }
