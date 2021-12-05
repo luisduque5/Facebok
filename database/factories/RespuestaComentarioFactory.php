@@ -14,7 +14,7 @@ class RespuestaComentarioFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'textoRespuesta'=>$this->faker->paragraph()
         ];
     }
 }

@@ -14,7 +14,8 @@ class ComentarioFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //Se indica el campo que se desea rellenar con datos de prueba
+            'textoComentario'=>$this->faker->paragraph()
         ];
     }
 }

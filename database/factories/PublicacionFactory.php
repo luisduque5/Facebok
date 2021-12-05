@@ -14,7 +14,9 @@ class PublicacionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            //Se indican los campos que se desean rellenar con datos de prueba
+            'imagenPublicacion'=>$this->faker->paragraph(),
+            'textoPublicacion'=>$this->faker->paragraph()
         ];
     }
 }
