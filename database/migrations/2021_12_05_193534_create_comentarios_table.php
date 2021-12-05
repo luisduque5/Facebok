@@ -14,7 +14,7 @@ class CreateComentariosTable extends Migration
     public function up()
     {
         Schema::create('comentarios', function (Blueprint $table) {
-            $table->id('idComentario');//Campo que almacena los IDs de cada comentario
+            $table->id('id');//Campo que almacena los IDs de cada comentario
             $table->text('textoComentario');//Campo que almacena el texto del comentario
             $table->timestamps();//Campo que permite recupear fecha y hora de creacion o modificacion del registro
         });

@@ -36,7 +36,7 @@ class PublicacionController extends Controller
      */
     public function show(Publicacion $publicacion)
     {
-        //
+        return $publicacion;
     }
 
     /**
