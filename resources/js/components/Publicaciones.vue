@@ -1,16 +1,13 @@
 <!--Seccion de HTML-->
-<template>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">usuario</th>                               
-            </tr>
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-
+<template>    
+    <table class="table table-striped">        
+        <tbody v-for="publicacion in publicaciones" :key="publicacion.id">            
+            <tr style="width: 700px;" class="text-center">{{publicacion.id}}</tr>
+            <tr style="width: 700px;" class="text-center">{{publicacion.imagenPublicacion}}</tr>
+            <tr style="width: 700px;" class="text-center">{{publicacion.textoPublicacion}}</tr>
+            <tr style="width: 700px;" class="text-center">Publicado el: {{publicacion.created_at}}</tr>            
+            <tr class="text-center"><input type="text" style="width: 700px;"></tr>
+            <tr class="text-center"><button class="btn-info">Comentar</button></tr><br>            
         </tbody>
     </table>
 </template>
@@ -19,12 +16,18 @@
 export default {
     data(){
         return{
-
+            publicaciones:[],
         }
     },
     methods: {
-        
+        async listar(){
+            const res = await axios.get('publicacion');
+            this.publicaciones = res.data;
+        }
     },
+    created(){
+        this.listar();
+    }
 }
 </script>
 <!--Seccion de estilos con CSS-->
