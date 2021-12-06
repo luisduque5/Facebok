@@ -14,7 +14,8 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        //
+        //Funcion encargada de mostrar cierta informacion
+        return Comentario::get();
     }
 
     /**
@@ -25,7 +26,8 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comentario = new Comentario();
+        $comentario->create($request->all());
     }
 
     /**
@@ -36,7 +38,8 @@ class ComentarioController extends Controller
      */
     public function show(Comentario $comentario)
     {
-        //
+        //Funcion encargada de mostrar cierta informacion
+        return $comentario;
     }
 
     /**
@@ -48,7 +51,9 @@ class ComentarioController extends Controller
      */
     public function update(Request $request, Comentario $comentario)
     {
-        //
+        //Funcion encargada de actualizar un registro
+        $comentario = new Comentario();
+        $comentario->update($request->all());
     }
 
     /**
@@ -59,6 +64,7 @@ class ComentarioController extends Controller
      */
     public function destroy(Comentario $comentario)
     {
-        //
+        //Funcion encargada de eliminar un registro
+        return $comentario;
     }
 }

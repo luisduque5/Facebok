@@ -14,7 +14,7 @@ class PublicacionController extends Controller
      */
     public function index()
     {
-        //
+        return Publicacion::get();
     }
 
     /**
@@ -25,7 +25,9 @@ class PublicacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ///Funcion encargada de crear nuevos registros con los datos obtenidos
+        $publicacion = new Publicacion();
+        $publicacion->create($request->all());
     }
 
     /**
@@ -36,6 +38,7 @@ class PublicacionController extends Controller
      */
     public function show(Publicacion $publicacion)
     {
+        //Funcion encargada de mostrar toda la informacion
         return $publicacion;
     }
 
@@ -48,7 +51,8 @@ class PublicacionController extends Controller
      */
     public function update(Request $request, Publicacion $publicacion)
     {
-        //
+        ///Funcion encargada de actualizar datos
+        $publicacion->update($request->all());
     }
 
     /**
@@ -59,6 +63,7 @@ class PublicacionController extends Controller
      */
     public function destroy(Publicacion $publicacion)
     {
-        //
+        //Funcion encargada de eliminar un registro indicado
+        return $publicacion;
     }
 }

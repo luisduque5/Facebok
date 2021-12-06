@@ -14,7 +14,8 @@ class RespuestaComentarioController extends Controller
      */
     public function index()
     {
-        //
+        //Funcion index encargada de mostrar informacion indicada
+        return respuestaComentario::get();
     }
 
     /**
@@ -25,7 +26,9 @@ class RespuestaComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Funcion store encargada de crear nuevos registros
+        $respuestaComentario = new respuestaComentario;
+        $respuestaComentario->create($request->all());
     }
 
     /**
@@ -36,7 +39,8 @@ class RespuestaComentarioController extends Controller
      */
     public function show(respuestaComentario $respuestaComentario)
     {
-        //
+        //Funcion show encargada de mostrar un registro indicado
+        return $respuestaComentario;
     }
 
     /**
@@ -48,7 +52,8 @@ class RespuestaComentarioController extends Controller
      */
     public function update(Request $request, respuestaComentario $respuestaComentario)
     {
-        //
+        //Funcion encargada de actualizar registros
+        $respuestaComentario->update($request->all());
     }
 
     /**
@@ -59,6 +64,6 @@ class RespuestaComentarioController extends Controller
      */
     public function destroy(respuestaComentario $respuestaComentario)
     {
-        //
+        //Funcion encargada de eliminar los registros indicados
     }
 }
