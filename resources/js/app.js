@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-Vue.component('example', require('./components/Publicaciones.vue').default);
+Vue.component('publicaciones', require('./components/Publicaciones.vue').default);
 
 const app = new Vue({
     el: '#app',

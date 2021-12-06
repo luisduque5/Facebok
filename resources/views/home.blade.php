@@ -15,13 +15,16 @@
                         </div>
                     @endif
                     <!--Se indica el nombre de la persona que ha iniciado sesión-->
-                    <b>{{ __(Auth::user()->name)}}</b><br>
-                    <label style="color: blue">¿En que estas pensando?: </label><br>
-                    <input type="text" style="color: blue; width: 700px;">
+                    <b style="font-size: 18px">{{ __(Auth::user()->name)}}</b><br>
+                    <label style="color: blue; font-size: 17px;">¿En que estas pensando?: </label><br>
+                    <input type="text" style="width: 700px;"><br><hr>
+                    <label for="img" style="color: blue; width: 353px">Añadir foto/img</label>
+                    <input type="file" style="visibility: hidden" id = "img" name = "img" required>                    
+                    <input type="submit" style="background-color: blue; color: white;" value="Publicar">
                 </div>
             </div>
         </div>
     </div>
-    <example/>
+    <publicaciones/>
 </div>
 @endsection
