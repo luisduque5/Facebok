@@ -5276,6 +5276,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5305,6 +5308,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
+      }))();
+    },
+    espacio: function espacio() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   },
@@ -28672,38 +28688,57 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "table",
-    { staticClass: "table table-striped" },
     _vm._l(_vm.publicaciones, function (publicacion) {
-      return _c("tbody", { key: publicacion.id }, [
-        _c(
-          "tr",
-          { staticClass: "text-center", staticStyle: { width: "700px" } },
-          [_vm._v(_vm._s(publicacion.id))]
-        ),
-        _vm._v(" "),
-        _c(
-          "tr",
-          { staticClass: "text-center", staticStyle: { width: "700px" } },
-          [_vm._v(_vm._s(publicacion.imagenPublicacion))]
-        ),
-        _vm._v(" "),
-        _c(
-          "tr",
-          { staticClass: "text-center", staticStyle: { width: "700px" } },
-          [_vm._v(_vm._s(publicacion.textoPublicacion))]
-        ),
-        _vm._v(" "),
-        _c(
-          "tr",
-          { staticClass: "text-center", staticStyle: { width: "700px" } },
-          [_vm._v("Publicado el: " + _vm._s(publicacion.created_at))]
-        ),
-        _vm._v(" "),
-        _vm._m(0, true),
-        _vm._v(" "),
-        _vm._m(1, true),
-        _c("br"),
-      ])
+      return _c(
+        "tbody",
+        { key: publicacion.id },
+        [
+          _c(
+            "tr",
+            { staticClass: "text-center", staticStyle: { width: "700px" } },
+            [_vm._v(_vm._s(publicacion.id))]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            { staticClass: "text-center", staticStyle: { width: "700px" } },
+            [_vm._v(_vm._s(publicacion.imagenPublicacion))]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            { staticClass: "text-center", staticStyle: { width: "700px" } },
+            [_vm._v(_vm._s(publicacion.textoPublicacion))]
+          ),
+          _vm._v(" "),
+          _c(
+            "tr",
+            { staticClass: "text-center", staticStyle: { width: "700px" } },
+            [_vm._v("Publicado el: " + _vm._s(publicacion.created_at))]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("center", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "button" },
+                on: { click: _vm.espacio },
+              },
+              [_vm._v("Comentar")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("br"),
+        ],
+        1
+      )
     }),
     0
   )
@@ -28713,16 +28748,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "text-center" }, [
-      _c("input", { staticStyle: { width: "700px" }, attrs: { type: "text" } }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn-info" }, [_vm._v("Comentar")]),
+    return _c("tr", { staticClass: "text-center", attrs: { id: "cuadro" } }, [
+      _c("input", {
+        staticStyle: { width: "700px" },
+        attrs: { type: "text", id: "comentar" },
+      }),
     ])
   },
 ]

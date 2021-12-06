@@ -65,5 +65,6 @@ class RespuestaComentarioController extends Controller
     public function destroy(respuestaComentario $respuestaComentario)
     {
         //Funcion encargada de eliminar los registros indicados
+        $respuestaComentario->delete();
     }
 }

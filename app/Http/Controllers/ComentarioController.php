@@ -65,6 +65,6 @@ class ComentarioController extends Controller
     public function destroy(Comentario $comentario)
     {
         //Funcion encargada de eliminar un registro
-        return $comentario;
+        $comentario->delete();
     }
 }

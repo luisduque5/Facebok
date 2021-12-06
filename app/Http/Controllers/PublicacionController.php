@@ -64,6 +64,6 @@ class PublicacionController extends Controller
     public function destroy(Publicacion $publicacion)
     {
         //Funcion encargada de eliminar un registro indicado
-        return $publicacion;
+        $publicacion->delete();
     }
 }

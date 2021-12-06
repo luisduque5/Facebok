@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<body style="background-color: gray">
+<body class="bg-ligth">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -18,8 +18,8 @@
                         <!--Se indica el nombre de la persona que ha iniciado sesión-->
                         <b style="font-size: 18px">{{ __(Auth::user()->name)}}</b><br>
                         <label style="color: blue; font-size: 17px;">¿En que estas pensando?: </label><br>
-                        <input type="text" style="width: 700px;"><br><hr>
-                        <label for="img" style="color: blue; width: 353px">Añadir foto/img</label>
+                        <input type="text" style="width: 1080px;"><br><hr>
+                        <label for="img" style="color: blue; width: 733px">Añadir foto/img</label>
                         <input type="file" style="visibility: hidden" id = "img" name = "img" required>                    
                         <input type="submit" style="background-color: blue; color: white;" value="Publicar">
                     </div>
