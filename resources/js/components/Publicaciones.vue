@@ -12,15 +12,16 @@
             </div>
             <!-- Cuerpo del modal, el cual contiene un campo para escribir el mensaje, asi como de seleccionar una imagen opcional -->
             <div class="modal-body">
+                <!--Enalce del campo y objeto con v-model-->
+                <input v-model="publicacion.textoPublicacion" type="text" class="form-control" placeholder="Ingresa aqui el texto de la publicacion..." id="texto"><br>
                 <label for="img" style="color: blue;">Añadir foto/imagen: </label>                                    
-                <input type="file" style= "color: blue; " id = "img" name = "img">
+                <input type="file" style= "color: blue;" accept="png,jpg" id = "imgSeleccionada">
             </div>
             <!-- Modal footer que contiene dos botones, uno para cerrar el modal y el otro para realizar la publicacion-->
             <div class="modal-footer">
                 <button @click="cerrarModal();" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 <button @click="publicar();" type="button" class="btn btn-primary" data-dismiss="modal">Publicar</button>
             </div>
-
             </div>
         </div>
         </div>
@@ -49,7 +50,7 @@
                 <tr style="width: 700px;" class="text-center">{{publicacion.textoPublicacion}}</tr>            
                 <tr>
                     <center>
-                        <td><button @click="tipoPublicacion=false; abrirModal();" class="btn btn-primary">Hacer un comentario</button></td>    
+                        <td><button @click="tipoPublicacion=false; abrirModal(publicacion);" class="btn btn-primary">Hacer un comentario</button></td>    
                     </center>  
                 </tr>                        
                 <hr><br>
@@ -73,11 +74,18 @@
 <script>
 export default {
     data(){
-        return{ 
+        return{
+            //Objeto de tipo publicacion
+            publicacion:{                
+                textoPublicacion: ''                               
+            },                
+            //Variable booleana para cambiar el titulo al Modal
             tipoPublicacion:true,
             modal: 0,
             tituloModal:'', 
+            //Arreglo de los registros de publicaciones
             publicaciones:[],
+            //Arreglo de comentarios existentes en la BD
             comentarios:[],
         }
     },
@@ -87,13 +95,22 @@ export default {
             this.publicaciones = pub.data;
 
             const com = await axios.get('/comentario');
-            this.comentarios = com.data;
+            this.comentarios = com.data;            
         },             
         async eliminar(id){
             const eliminar = await axios.delete('/comentario/'+id);
             this.listar();
         },  
-        abrirModal(){
+        async publicar(){
+            if(this.tipoPublicacion){
+                const pub = await axios.post('/publicacion', this.publicacion);
+            }else{
+                const com = await axios.post('/comentario', this.comentario);
+            }
+            this.cerrarModal();
+            this.listar();
+        },
+        abrirModal(data={}){
             this.modal=1;
             //Desicion de colocacion de titulo a modal dependiendo el boton que fue pulsado
             if(this.tipoPublicacion){
@@ -106,9 +123,6 @@ export default {
         },
         cerrarModal(){
             this.modal=0;
-        },
-        publicar(){
-
         },
     },
     created(){

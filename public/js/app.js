@@ -5334,13 +5334,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      //Objeto de tipo publicacion
+      publicacion: {
+        textoPublicacion: ''
+      },
+      //Variable booleana para cambiar el titulo al Modal
       tipoPublicacion: true,
       modal: 0,
       tituloModal: '',
+      //Arreglo de los registros de publicaciones
       publicaciones: [],
+      //Arreglo de comentarios existentes en la BD
       comentarios: []
     };
   },
@@ -5400,7 +5408,50 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
+    publicar: function publicar() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var pub, com;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (!_this3.tipoPublicacion) {
+                  _context3.next = 6;
+                  break;
+                }
+
+                _context3.next = 3;
+                return axios.post('/publicacion', _this3.publicacion);
+
+              case 3:
+                pub = _context3.sent;
+                _context3.next = 9;
+                break;
+
+              case 6:
+                _context3.next = 8;
+                return axios.post('/comentario', _this3.comentario);
+
+              case 8:
+                com = _context3.sent;
+
+              case 9:
+                _this3.cerrarModal();
+
+                _this3.listar();
+
+              case 11:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
     abrirModal: function abrirModal() {
+      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       this.modal = 1; //Desicion de colocacion de titulo a modal dependiendo el boton que fue pulsado
 
       if (this.tipoPublicacion) {
@@ -5413,8 +5464,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     cerrarModal: function cerrarModal() {
       this.modal = 0;
-    },
-    publicar: function publicar() {}
+    }
   },
   created: function created() {
     this.listar();
@@ -29227,7 +29277,49 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "modal-body" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.publicacion.textoPublicacion,
+                  expression: "publicacion.textoPublicacion",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                placeholder: "Ingresa aqui el texto de la publicacion...",
+                id: "texto",
+              },
+              domProps: { value: _vm.publicacion.textoPublicacion },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.publicacion,
+                    "textoPublicacion",
+                    $event.target.value
+                  )
+                },
+              },
+            }),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticStyle: { color: "blue" }, attrs: { for: "img" } },
+              [_vm._v("Añadir foto/imagen: ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticStyle: { color: "blue" },
+              attrs: { type: "file", accept: "png,jpg", id: "imgSeleccionada" },
+            }),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer" }, [
             _c(
@@ -29269,7 +29361,7 @@ var render = function () {
           _c("div", { staticClass: "row justify-content-center" }, [
             _c("div", { staticClass: "col-md-12" }, [
               _c("div", { staticClass: "card" }, [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -29337,7 +29429,7 @@ var render = function () {
                         on: {
                           click: function ($event) {
                             _vm.tipoPublicacion = false
-                            _vm.abrirModal()
+                            _vm.abrirModal(publicacion)
                           },
                         },
                       },
@@ -29356,7 +29448,7 @@ var render = function () {
               _c(
                 "tbody",
                 [
-                  _vm._m(2, true),
+                  _vm._m(1, true),
                   _vm._v(" "),
                   _vm._l(_vm.comentarios, function (comentario) {
                     return _c(
@@ -29400,21 +29492,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("label", { staticStyle: { color: "blue" }, attrs: { for: "img" } }, [
-        _vm._v("Añadir foto/imagen: "),
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticStyle: { color: "blue" },
-        attrs: { type: "file", id: "img", name: "img" },
-      }),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
