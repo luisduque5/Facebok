@@ -40,7 +40,7 @@
                 </div>
             </thead>     
             <tbody v-for="publicacion in publicaciones" :key="publicacion.id">  
-                <!--Ciclo que imprime todas las publicaciones existentes en una tabla-->          
+                <!--Ciclo que imprime todas las publicaciones existentes en una tabla-->  
                 <tr><td colspan="2">
                     <label style="width: 855px;">Publicacion de: </label>                    
                     <label class="text-center">{{publicacion.created_at}}</label>
