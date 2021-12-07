@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
 <body class="bg-ligth">
     <div class="container">
         <div class="row justify-content-center">
@@ -16,19 +21,14 @@
                             </div>
                         @endif
                         <!--Se indica el nombre de la persona que ha iniciado sesión-->
-                        <b style="font-size: 18px">{{ __(Auth::user()->name)}}</b><br>
-                        <label style="color: blue; font-size: 17px;">¿En que estas pensando?: </label><br>
-                        <input type="text" style="width: 1080px;"><br><hr>
-                        <label for="img" style="color: blue; width: 733px">Añadir foto/img</label>
-                        <input type="file" style="visibility: hidden" id = "img" name = "img" required>                    
-                        <input type="submit" style="background-color: blue; color: white;" value="Publicar">
+                        <b style="font-size: 18px">{{ __(Auth::user()->name)}}</b><br>                        
                     </div>
                 </div>
             </div>
         </div>     
     </div>
     <br>
-    <div class="container">
+    <div class="container">        
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
