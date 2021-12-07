@@ -1,0 +1,16 @@
+Para el uso de la siguiente aplicacion:
+ejecutar el comando php artisan serve en la terminar o git bash
+y acceder a la direccion que se proporciona
+
+La aplicacion permite registrarse como usuario nuevo, iniciar secion,
+realizar publicaciones, visualizar las publicaciones existentes y 
+comentarios en cada una de ellas
+
+Se hizo uso de:
+Laravel version 4.2.9
+Bootstrap 5.1.3
+MySQL 8.0.13
+vue 2.6.12
+XAMPP 8.0.13
+Visual Studio Code
+Github + GitBash
