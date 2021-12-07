@@ -52,6 +52,7 @@ class PublicacionController extends Controller
     public function update(Request $request, Publicacion $publicacion)
     {
         ///Funcion encargada de actualizar datos
+        $publicacion = new Publicacion();
         $publicacion->update($request->all());
     }
 
