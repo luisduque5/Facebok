@@ -5401,11 +5401,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     abrirModal: function abrirModal() {
-      this.modal = 1;
+      this.modal = 1; //Desicion de colocacion de titulo a modal dependiendo el boton que fue pulsado
 
       if (this.tipoPublicacion) {
+        //Al pulsar el boton para publicar un estado
         this.tituloModal = "Publicar estado";
       } else {
+        //Titulo que se asina al modal al pulsar el boton de 'comentar'
         this.tituloModal = "Realizar comentario";
       }
     },
